@@ -1,7 +1,7 @@
 #include "Collisions.h"
 
 
-void Collisions::get_x_y(float& x, float& y, unsigned char i, float cellX, float cellY, bool isBig) {
+void Collisions::get_x_y(float& x, float& y, unsigned char i, float cellX, float cellY, const bool isBig) {
 	switch (i) {
 		case 0: {
 			x = floor(cellX);
@@ -26,7 +26,7 @@ void Collisions::get_x_y(float& x, float& y, unsigned char i, float cellX, float
 }
 
 
-unsigned char Collisions::map_collision(float x, float y, const Map& aMap, bool isBig) {
+const unsigned char Collisions::map_collision(float x, float y, const Map& aMap, const bool isBig) {
 	float cellX = x / CELL_SIZE;
 	float cellY = y / CELL_SIZE;
 	unsigned char output = 0;
@@ -56,7 +56,7 @@ unsigned char Collisions::map_collision(float x, float y, const Map& aMap, bool 
 	return output;
 }
 
-void Collisions::coin_collision(std::vector<sf::Vector2i>& aCollisionCells, float x, float y, Map& aMap, bool isBig, unsigned int& count) {
+void Collisions::coin_collision(std::vector<sf::Vector2i>& aCollisionCells, float x, float y, const Map& aMap, const bool isBig, unsigned int& count) {
 	float cellX = x / CELL_SIZE;
 	float cellY = y / CELL_SIZE;
 	aCollisionCells.clear();
@@ -116,7 +116,7 @@ void Collisions::get_collision_brick(std::vector<sf::Vector2i>& aCollisionCells,
 }
 
 
-void Collisions::get_collision_question_block(std::vector<sf::Vector2i>& aCollisionCells, float x, float y, const Map& aMap, bool isBig) {
+void Collisions::get_collision_question_block(std::vector<sf::Vector2i>& aCollisionCells, float x, float y, const Map& aMap, const bool isBig) {
 	float cellX = x / CELL_SIZE;
 	float cellY = y / CELL_SIZE;
 	aCollisionCells.clear();

@@ -119,7 +119,7 @@ void Maro::draw(sf::RenderWindow& aWindow) {
 }
 
 
-void Maro::update(LevelManager& levelManager, unsigned int aViewX, Map& aMap, std::vector<std::shared_ptr<Roomba>>& aRoombas, std::vector<std::shared_ptr<Mushroom>>& mushrooms, unsigned int& count) {
+void Maro::update(LevelManager& levelManager, const unsigned int aViewX, Map& aMap, std::vector<std::shared_ptr<Roomba>>& aRoombas, std::vector<std::shared_ptr<Mushroom>>& mushrooms, unsigned int& count) {
 	bool moving = 0;
 	onGround = 0;
 	std::vector<sf::Vector2i> cells;
@@ -189,7 +189,7 @@ void Maro::update(LevelManager& levelManager, unsigned int aViewX, Map& aMap, st
 }
 
 
-void Maro::set_x_after_collision(bool& moving, unsigned char& xCollision) {
+void Maro::set_x_after_collision(bool& moving,const unsigned char& xCollision) {
 	moving = 0;
 	if (5 & ~xCollision && 10 & xCollision) {
 		x = CELL_SIZE * (ceil((xSpeed + x) / CELL_SIZE) - 1);
@@ -201,7 +201,7 @@ void Maro::set_x_after_collision(bool& moving, unsigned char& xCollision) {
 }
 
 
-void Maro::set_y_after_collision(unsigned char& yCollision) {
+void Maro::set_y_after_collision(const unsigned char& yCollision) {
 	if (3 & yCollision && 12 & ~yCollision) {
 		y = CELL_SIZE * (1 + floor((ySpeed + y) / CELL_SIZE));
 	}
@@ -225,15 +225,15 @@ void Maro::question_block_interaction(std::vector<sf::Vector2i>& cells, std::vec
 	}
 }
 
-bool Maro::get_flipped() {
+const bool Maro::get_flipped() {
 	return flipped;
 }
 
-bool Maro::get_on_ground() {
+const bool Maro::get_on_ground() {
 	return onGround;
 }
 
-bool Maro::get_big() {
+const bool Maro::get_big() {
 	return big;
 }
 
@@ -262,7 +262,7 @@ void Maro::x_move(bool& moving) {
 }
 
 
-void Maro::y_move(unsigned char yCollision) {
+void Maro::y_move(const unsigned char yCollision) {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) || sf::Keyboard::isKeyPressed(sf::Keyboard::Space)||
 		sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
 		if (ySpeed == 0 && yCollision > 0) {
@@ -299,7 +299,7 @@ void Maro::die(bool instant) {
 }
 
 
-sf::FloatRect Maro::get_hit_box() {
+const sf::FloatRect Maro::get_hit_box() {
 	if (!big) {
 		return sf::FloatRect(x, y, CELL_SIZE, CELL_SIZE);
 	}
@@ -309,7 +309,7 @@ sf::FloatRect Maro::get_hit_box() {
 }
 
 
-char Maro::get_death_timer() {
+const char Maro::get_death_timer() {
 	return deathTimer;
 }
 

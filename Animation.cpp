@@ -1,7 +1,7 @@
 #include "Animation.h"
 
 
-Animation::Animation(const  unsigned short aWidth, const std::string& aTextureLocation, const unsigned short aSpeed) {
+Animation::Animation(const unsigned short aWidth, const std::string& aTextureLocation, const unsigned short aSpeed) {
 	speed = aSpeed;
 	width = aWidth;
 	texture.loadFromFile(aTextureLocation);
@@ -24,12 +24,12 @@ void Animation::draw(sf::RenderWindow& window) {
 }
 
 
-void Animation::set_flipped(bool value) {
+void Animation::set_flipped(const bool value) {
 	flipped = value;
 }
 
 
-void Animation::step(bool isBig) {
+void Animation::step(const bool isBig) {
 	if (isBig) {
 		while (iterator >= speed) {
 			iterator -= speed;
@@ -46,6 +46,6 @@ void Animation::step(bool isBig) {
 }
 
 
-void Animation::set_position(float x, float y) {
+void Animation::set_position(const float x, const float y) {
 	sprite.setPosition(x, y);
 }

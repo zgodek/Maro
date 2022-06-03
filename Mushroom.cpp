@@ -79,6 +79,6 @@ void Mushroom::move(const unsigned aViewX, const Map& aMap) {
 }
 
 
-bool Mushroom::get_whether_dead() const {
+const bool Mushroom::get_whether_dead() const {
 	return dead;
 }

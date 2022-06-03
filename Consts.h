@@ -42,7 +42,7 @@ const std::string TEXTURES_PATH = "textures/";
 const std::string MAP_PATH = "map/";
 const std::string MARO_WALK_TEXTURE = TEXTURES_PATH + "MaroWalk.png";
 
-enum Cell {
+const enum Cell {
 	Empty,
 	Brick,
 	Pipe,

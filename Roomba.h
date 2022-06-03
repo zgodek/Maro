@@ -19,8 +19,8 @@ public:
 	Roomba();
 	void draw(sf::RenderWindow& aWindow);
 	void update(const Map& aMap, const unsigned aViewX, std::vector< std::shared_ptr<Roomba>>& aRoombas);
-	void die(bool instant);
-	unsigned char get_death_timer() const;
-	bool get_whether_dead() const;
+	void die(const bool instant);
+	const unsigned char get_death_timer() const;
+	const bool get_whether_dead() const;
 	bool get_walkingOnRoomba() const;
 };

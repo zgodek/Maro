@@ -9,7 +9,7 @@ GameManager::GameManager(std::shared_ptr<Maro> aMaro, Map& aMap, std::shared_ptr
 }
 
 
-void GameManager::update_objects(unsigned int& aViewX, unsigned int& aCount) {
+void GameManager::update_objects(const unsigned int& aViewX, unsigned int& aCount) {
 	maro->update(*levelManager, aViewX, map, roombas, mushrooms, aCount);
 	for (unsigned short i = 0; i < roombas.size(); i++) {
 		if (roombas[i]->get_death_timer() == 0) {
@@ -25,7 +25,7 @@ void GameManager::update_objects(unsigned int& aViewX, unsigned int& aCount) {
 }
 
 
-void GameManager::draw(sf::RenderWindow& aWindow, unsigned int& aViewX, sf::View& aView, sf::Color& aBackgroundColor, sf::Texture& aMapTexture) {
+void GameManager::draw(sf::RenderWindow& aWindow, const unsigned int& aViewX, sf::View& aView, const sf::Color& aBackgroundColor, const sf::Texture& aMapTexture) {
     aView.reset(sf::FloatRect(aViewX, 0, SCREEN_WIDTH, SCREEN_HEIGHT));
 	aWindow.setView(aView);
 	aWindow.clear(aBackgroundColor);
@@ -43,7 +43,7 @@ void GameManager::draw(sf::RenderWindow& aWindow, unsigned int& aViewX, sf::View
 
 
 
-void GameManager::change_level(unsigned short& aLevelFinish, unsigned short& aCurrentLevel, sf::Image& aMapSketch, sf::Color& aBackgroundColor, unsigned int& aCount, unsigned int& aLastLevelPoints, sf::Time elapsed1, float& aLastLevelTime) {
+void GameManager::change_level(unsigned short& aLevelFinish, unsigned short& aCurrentLevel, sf::Image& aMapSketch, sf::Color& aBackgroundColor, const unsigned int& aCount, unsigned int& aLastLevelPoints, const sf::Time elapsed1, float& aLastLevelTime) {
 	if ((maro->get_x() >= CELL_SIZE * aLevelFinish && aCurrentLevel == 0) || (aCurrentLevel == 1 &&  maro->get_x() >= CELL_SIZE * aLevelFinish && maro->get_y() >= SCREEN_HEIGHT - 6 * CELL_SIZE)) {
 		aCurrentLevel++;
 		roombas.clear();

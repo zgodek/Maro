@@ -13,9 +13,9 @@ class GameManager{
     std::shared_ptr<LevelManager> levelManager;
 public:
     GameManager(std::shared_ptr<Maro> aMaro, Map& aMap, std::shared_ptr<LevelManager> aLevelManager, std::vector<std::shared_ptr<Roomba>>& aRoombas, std::vector<std::shared_ptr<Mushroom>>& aMushrooms);
-    void update_objects(unsigned int& aViewX, unsigned int& aCount);
-    void draw(sf::RenderWindow& aWindow, unsigned int& aViewX, sf::View& aView, sf::Color& aBackgroundColor, sf::Texture& aMapTexture);
-    void change_level(unsigned short& aLevelFinish, unsigned short& aCurrentLevel, sf::Image& aMapSketch, sf::Color& aBackgroundColor, unsigned int& aCount, unsigned int& aLastLevelPoints, sf::Time elapsed1, float& aLastLevelTime);
+    void update_objects(const unsigned int& aViewX, unsigned int& aCount);
+    void draw(sf::RenderWindow& aWindow, const unsigned int& aViewX, sf::View& aView, const sf::Color& aBackgroundColor, const sf::Texture& aMapTexture);
+    void change_level(unsigned short& aLevelFinish, unsigned short& aCurrentLevel, sf::Image& aMapSketch, sf::Color& aBackgroundColor, const unsigned int& aCount, unsigned int& aLastLevelPoints, const sf::Time elapsed1, float& aLastLevelTime);
     std::vector<std::shared_ptr<Mushroom>> get_mushrooms();
     std::vector<std::shared_ptr<Roomba>> get_roombas();
     std::shared_ptr<Maro> get_maro();

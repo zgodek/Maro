@@ -91,12 +91,12 @@ void Roomba::update(const Map& aMap, const unsigned aViewX, std::vector<std::sha
 }
 
 
-bool Roomba::get_whether_dead() const {
+const bool Roomba::get_whether_dead() const {
 	return dead;
 }
 
 
-void Roomba::die(bool instant) {
+void Roomba::die(const bool instant) {
 	if (instant == 1) {
 		deathTimer = 0;
 	}
@@ -107,7 +107,7 @@ void Roomba::die(bool instant) {
 	}
 }
 
-unsigned char Roomba::get_death_timer() const {
+const unsigned char Roomba::get_death_timer() const {
 	return deathTimer;
 }
 

@@ -12,10 +12,10 @@ class Animation{
 	sf::Texture texture;
 public:
 	Animation() {};
-	Animation(const  unsigned short aWidth, const std::string& aTextureLocation, const unsigned short aSpeed);
+	Animation(const unsigned short aWidth, const std::string& aTextureLocation, const unsigned short aSpeed);
 	void draw(sf::RenderWindow& window);
-	void set_flipped(bool value);
-	void step(bool isBig);
-	void set_position(float i_x, float i_y);
+	void set_flipped(const bool value);
+	void step(const bool isBig);
+	void set_position(const float i_x, const float i_y);
 };
 

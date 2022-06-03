@@ -13,5 +13,5 @@ public:
 	void die(const bool isDead);
 	void draw(const unsigned aViewX, sf::RenderWindow& aWindow);
 	void move(const unsigned aViewX, const Map& aMap);
-	bool get_whether_dead() const;
+	const bool get_whether_dead() const;
 };

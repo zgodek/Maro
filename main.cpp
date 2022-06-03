@@ -21,13 +21,13 @@ unsigned int high_score_load(unsigned int& points) {
 }
 
 
-void high_score_save(unsigned int& points) {
+void high_score_save(const unsigned int& points) {
 	std::ofstream highScoreInfo(filename, std::ios::trunc);
 	highScoreInfo << points;
 }
 
 
-void level_save(unsigned int lastLevelPoints, unsigned short currentLevel, float lastLevelTime) {
+void level_save(const unsigned int lastLevelPoints, const unsigned short currentLevel, const float lastLevelTime) {
 	std::ofstream saveInfo(save, std::ios::trunc);
 	saveInfo << lastLevelPoints;
 	saveInfo << "\n";
@@ -68,7 +68,7 @@ void end_game(unsigned int& timeInt, unsigned viewX, sf::RenderWindow& window, u
 }
 
 
-void escape(unsigned short& timer, unsigned viewX, sf::RenderWindow& window) {
+void escape(unsigned short& timer, const unsigned viewX, sf::RenderWindow& window) {
 	timer = 1;
 	std::string message = "\t   Are you sure? \n    press enter if yes\npress anything else if no";
 	sf::Font font;

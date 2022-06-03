@@ -9,7 +9,7 @@ LevelManager::LevelManager(sf::Image& aMapSketch) {
 }
 
 
-void LevelManager::draw_background(const bool underground, unsigned short i, unsigned short j, unsigned short mapHeight, sf::Sprite& cellSprite, sf::Vector2u& mapSize, sf::RenderWindow& aWindow) {
+void LevelManager::draw_background(const bool underground, const unsigned short i, const unsigned short j, const unsigned short mapHeight, sf::Sprite& cellSprite, sf::Vector2u& mapSize, sf::RenderWindow& aWindow) {
 	unsigned short x = 0;
 	unsigned short y = 0;
 	unsigned short background_j = j + 2 * mapHeight;
@@ -90,7 +90,7 @@ void LevelManager::draw_background(const bool underground, unsigned short i, uns
 }
 
 
-void LevelManager::draw_objects(const bool underground, unsigned short i, unsigned short j, sf::Sprite& cellSprite, sf::RenderWindow& aWindow, const Map& aMap) {
+void LevelManager::draw_objects(const bool underground, const unsigned short i, const unsigned short j, sf::Sprite& cellSprite, sf::RenderWindow& aWindow, const Map& aMap) {
 	if (aMap[i][j] != Cell::Empty) {
 		unsigned short x = 0;
 		unsigned short y = 0;
@@ -194,7 +194,7 @@ void LevelManager::draw_objects(const bool underground, unsigned short i, unsign
 }
 
 
-void LevelManager::draw_map(const bool background, unsigned viewX, sf::RenderWindow& aWindow, sf::Color& backgroundColor, const sf::Texture& aMapTexture, const Map& aMap) {
+void LevelManager::draw_map(const bool background, const unsigned viewX, sf::RenderWindow& aWindow, const sf::Color& backgroundColor, const sf::Texture& aMapTexture, const Map& aMap) {
 	float mapEnd = ceil((viewX + SCREEN_WIDTH) / static_cast<float>(CELL_SIZE));
 	float mapHeight = floor(mapSketch.getSize().y / 3.f);
 	float mapStart = floor(viewX / static_cast<float>(CELL_SIZE));
@@ -285,7 +285,7 @@ void LevelManager::set_sketch(const sf::Image& sketch) {
 }
 
 
-void LevelManager::set_map_cell(Map& aMap, unsigned short x, unsigned short y, const Cell& aCell) {
+void LevelManager::set_map_cell(Map& aMap, const unsigned short x, const unsigned short y, const Cell& aCell) {
 	aMap[x][y] = aCell;
 }
 
