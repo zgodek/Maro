@@ -18,7 +18,5 @@ public:
 	const virtual float get_ySpeed() const;
 	virtual void set_position(const float newX, const float newY);
 	const virtual sf::FloatRect get_hit_box() const;
-
-
 };
 

@@ -1,7 +1,7 @@
 #include "Collisions.h"
 
 
-void Collisions::get_x_y(float& x, float& y, unsigned char i, float cellX, float cellY, const bool isBig) {
+const void Collisions::get_x_y(float& x, float& y, unsigned char i, float cellX, float cellY, const bool isBig) {
 	switch (i) {
 		case 0: {
 			x = floor(cellX);
@@ -56,6 +56,7 @@ const unsigned char Collisions::map_collision(float x, float y, const Map& aMap,
 	return output;
 }
 
+
 void Collisions::coin_collision(std::vector<sf::Vector2i>& aCollisionCells, float x, float y, const Map& aMap, const bool isBig, unsigned int& count) {
 	float cellX = x / CELL_SIZE;
 	float cellY = y / CELL_SIZE;
@@ -96,7 +97,6 @@ void Collisions::coin_collision(std::vector<sf::Vector2i>& aCollisionCells, floa
 		}
 	}
 }
-
 
 
 void Collisions::get_collision_brick(std::vector<sf::Vector2i>& aCollisionCells, float x, float y, const Map& aMap) {

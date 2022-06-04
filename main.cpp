@@ -136,7 +136,7 @@ void whole_game(bool loadFromSave) {
 			lag -= FRAME_DURATION;
 			while (window.pollEvent(event)) {
 				if (event.type == sf::Event::Closed) {
-					if (currentLevel != 0) {
+					if (currentLevel == 1) {
 						level_save(lastLevelPoints, currentLevel, lastLevelTime);
 					}
 					window.close();
